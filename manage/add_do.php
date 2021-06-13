@@ -26,7 +26,7 @@ if(!empty($_POST)){
 
 
   $statement = $db->prepare('INSERT INTO machines
-    SET name=?, weight=?, capacity=?, power=?, type=?, spec=?, noise=?,
+    SET name=?, weight=?, capacity=?, output_power=?, type=?, spec=?, noise=?,
     exhaust=?,	photo_main=?');
     echo $ret = $statement->execute(array(
       $_SESSION['add']['name'],
