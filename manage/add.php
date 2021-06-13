@@ -147,18 +147,25 @@ if($_REQUEST['action'] == 'rewrite'){
     </dd>
     <dt>騒音<span class ="required"> 必須</span></dt>
     <dd>
-      <input type="noise" name="type" size="35" maxlength="255" value="<?php echo h ($_POST['noise']);?>" />
+      <input type="text" name="noise" size="35" maxlength="255" value="<?php echo h ($_POST['noise']);?>" />
       <?php if ($error['noise'] == 'blank'): ?>
         <p class="error">*騒音を入力してください</p>
       <?php endif; ?>
     </dd>
     <dt>排ガス規制<span class ="required"> 必須</span></dt>
     <dd>
-      <input type="exhauset" name="type" size="35" maxlength="255" value="<?php echo h ($_POST['exhauset']);?>" />
+      <input type="text" name="exhaust" size="35" maxlength="255" value="<?php echo h ($_POST['exhauset']);?>" />
       <?php if ($error['exhauset'] == 'blank'): ?>
         <p class="error">*排ガス規制を入力してください</p>
       <?php endif; ?>
     </dd>
+
+    <dt>メイン写真　最大ファイルサイズは5MB</dt>
+    <?php if (isset($error)): ?>
+      <p class="error">＊恐れ入りますが、もう一度画像を指定してください</p>
+    <?php endif; ?>
+    <input type="hidden" name="MAX_FILE_SIZE" value="5242880" />
+    <dd><input type="file" name="photo_main" size="35"/></dd>
 
   </dl>
   <div><input type="submit" value="入力内容を確認する"></div>
