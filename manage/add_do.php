@@ -25,8 +25,7 @@ if(!empty($_POST)){
   //登録処理をする
 
 
-  $statement = $db->prepare('INSERT INTO machines
-    SET name=?, weight=?, capacity=?, output_power=?, type=?, spec=?, noise=?, exhaust=?,	photo_main=?');
+  $statement = $db->prepare('INSERT INTO machines SET name=?, weight=?, capacity=?, output_power=?, type=?, spec=?, noise=?, exhaust=?,	photo_main=?');
     echo $ret = $statement->execute(array(
       $_SESSION['add']['name'],
       $_SESSION['add']['weight'],
@@ -39,7 +38,7 @@ if(!empty($_POST)){
       $_SESSION['add']['photo_main'],
     ));
     unset($_SESSION['add']);
-    $_SESSION['message'] = "追加しました" . $statement->rowCount();
+    $_SESSION['message'] = "追加しました" . $statement->errorInfo();
 
     exit();
 
