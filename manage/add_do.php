@@ -26,8 +26,7 @@ if(!empty($_POST)){
 
 
   $statement = $db->prepare('INSERT INTO machines
-    SET name=?, weight=?, capacity=?, output_power=?, type=?, spec=?, noise=?,
-    exhaust=?,	photo_main=?');
+    SET name=?, weight=?, capacity=?, output_power=?, type=?, spec=?, noise=?, exhaust=?,	photo_main=?');
     echo $ret = $statement->execute(array(
       $_SESSION['add']['name'],
       $_SESSION['add']['weight'],
@@ -40,7 +39,7 @@ if(!empty($_POST)){
       $_SESSION['add']['photo_main'],
     ));
     unset($_SESSION['add']);
-    $_SESSION['message'] = "追加しました";
+    $_SESSION['message'] = "追加しました" . PDOStatement::rowCount() ;
 
     exit();
 
