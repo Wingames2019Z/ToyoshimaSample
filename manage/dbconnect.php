@@ -9,6 +9,10 @@ try {
 
 //htmlspecialcharsのショートカット
 function h($value){
-  return htmlspecialchars($value, ENT_QUOTES);
+  if (is_array($value)) {
+        return array_map("h", $value);
+    } else {
+        return htmlspecialchars($value, ENT_QUOTES,'UTF-8');
+    }
 }
 ?>
