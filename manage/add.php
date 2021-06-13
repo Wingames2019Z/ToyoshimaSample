@@ -112,21 +112,21 @@ if($_REQUEST['action'] == 'rewrite'){
     </dd>
     <dt>運転質量<span class ="required"> 必須</span></dt>
     <dd>
-      <input type="number" name="weight" size="35" maxlength="255" value="<?php echo h ($_POST['weight']);?>" />
+      <input type="text" name="weight" size="35" maxlength="255" oninput="value = value.replace(/[^0-9]+/i,'');" value="<?php echo h ($_POST['weight']);?>" />
       <?php if ($error['weight'] == 'blank'): ?>
         <p class="error">*運転質量を入力してください</p>
       <?php endif; ?>
     </dd>
     <dt>標準バケット容量（新JIS）<span class ="required"> 必須</span></dt>
     <dd>
-      <input type="number" name="capacity" size="35" maxlength="255" value="<?php echo h ($_POST['capacity']);?>" />
+      <input type="text" name="capacity" size="35" maxlength="255" oninput="value = value.replace(/[^0-9]+/i,'');" value="<?php echo h ($_POST['capacity']);?>" />
       <?php if ($error['capacity'] == 'blank'): ?>
         <p class="error">*標準バケット容量（新JIS）</p>
       <?php endif; ?>
     </dd>
     <dt>定格出力<span class ="required"> 必須</span></dt>
     <dd>
-      <input type="number" name="power" size="35" maxlength="255" value="<?php echo h ($_POST['power']);?>" />
+      <input type="text" name="power" size="35" maxlength="255" oninput="value = value.replace(/[^0-9]+/i,'');" value="<?php echo h ($_POST['power']);?>" />
       <?php if ($error['power'] == 'blank'): ?>
         <p class="error">*定格出力を入力してください</p>
       <?php endif; ?>
