@@ -39,7 +39,7 @@ if(!empty($_POST)){
       $_SESSION['add']['photo_main'],
     ));
     unset($_SESSION['add']);
-    $_SESSION['message'] = "追加しました" . PDOStatement::rowCount() ;
+    $_SESSION['message'] = "追加しました" . $statement->rowCount();
 
     exit();
 
