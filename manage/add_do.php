@@ -35,11 +35,11 @@ if(!empty($_POST)){
       $_SESSION['add']['spec'],
       $_SESSION['add']['noise'],
       $_SESSION['add']['exhaust'],
-      //$_SESSION['add']['photo_main'],
+      $_SESSION['add']['photo_main'],
     ));
     unset($_SESSION['add']);
-    $_SESSION['message'] = "追加しました" . $statement->errorInfo();
-
+    $_SESSION['message'] = "追加しました" ;
+    print_r($statement -> errorInfo()); 
     exit();
 
 }
