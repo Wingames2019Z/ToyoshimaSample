@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('dbconnect.php');
+require('/manage/dbconnect.php');
 date_default_timezone_set('Asia/Tokyo');
 if(isset($_SESSION['manager_id']) && $_SESSION['time'] + 3600 > time()){
 //ログインしている
