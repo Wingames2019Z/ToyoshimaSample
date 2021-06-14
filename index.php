@@ -1,3 +1,21 @@
+<?php
+session_start();
+require('dbconnect.php');
+date_default_timezone_set('Asia/Tokyo');
+if(isset($_SESSION['manager_id']) && $_SESSION['time'] + 3600 > time()){
+//ログインしている
+$_SESSION['time'] = time();
+}else{
+  //ログインしていない
+header('Location: login.php');
+exit();
+}
+//登録者情報を取得
+$machines = $db->query('SELECT * FROM machines');
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -90,16 +108,41 @@
 </div>
 <p class="btn1"><a href="#">もっとみる</a></p>
 </div>
-
-<div class="list-column">
-<figure><img src="images/sample1.jpg" alt=""></figure>
-<div class="text">
-<h4>メニュータイトル</h4>
-<p>ここに説明を入れます。</p>
-</div>
-<p class="btn1"><a href="#">もっとみる</a></p>
-</div>
-
+    <?php foreach ($machines as $machine):?>
+			<div class="list-column">
+				<figure>
+					<?php $photo_main_path = "../images/" .$machine['photo']; if (file_exists($photo_main_path)) :?>
+						<img src ="<?php echo h($photo_main_path ) ;?>"/>
+					<?php else :?>
+						<img src ="../images/noimage.png" width="100" height="100"/>
+					<?php endif;?>
+				</figure>
+				<div class="text">
+					<h4><?php echo  h($machine['name']); ?></h4>
+					      <table border="1">
+									<tr>
+										<th>運転質量</th>
+										<th>標準バケット容量（新JIS）</th>
+										<th>定格出力</th>
+										<th>タイプ</th>
+										<th>仕様</th>
+										<th>騒音</th>
+										<th>排ガス規制</th>
+									</tr>
+									<tr>
+										<th><?php echo  h($machine['weight']); ?></th>
+										<th><?php echo  h($machine['capacity']); ?></th>
+										<th><?php echo  h($machine['output_power']); ?></th>
+										<th><?php echo  h($machine['type']); ?></th>
+										<th><?php echo  h($machine['spec']); ?></th>
+										<th><?php echo  h($machine['noise']); ?></th>
+										<th><?php echo  h($machine['exhaust']); ?></th>
+									</tr>
+								</table>
+				</div>
+				<p class="btn1"><a href="#">もっとみる</a></p>
+			</div>
+    <?php endforeach;?>
 <div class="list-column">
 <figure><img src="images/sample1.jpg" alt=""></figure>
 <div class="text">

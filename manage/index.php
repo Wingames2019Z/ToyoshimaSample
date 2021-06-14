@@ -62,7 +62,6 @@ $count = $counts->fetch();
         <th><?php echo  h($machine['spec']); ?></th>
         <th><?php echo  h($machine['noise']); ?></th>
         <th><?php echo  h($machine['exhaust']); ?></th>
-        <?php ?>
         <th><?php $photo_main_path = "../images/" .$machine['photo'];
             if (file_exists($photo_main_path)) :?>
             <img src ="<?php echo h($photo_main_path ) ;?>" width="100" height="100"/>
