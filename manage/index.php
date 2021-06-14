@@ -16,6 +16,8 @@ $machines = $db->query('SELECT * FROM machines');
 $counts = $db->query('SELECT COUNT(*) AS num FROM machines');
 $count = $counts->fetch();
 
+$photo_main_path = "../images/" .$machines['photo']];
+
 ?>
 
 
@@ -46,6 +48,7 @@ $count = $counts->fetch();
           <th>仕様</th>
           <th>騒音</th>
           <th>排ガス規制</th>
+          <th>写真</th>
           <th></th>
         </tr>
     <?php foreach ($machines as $machine):?>
@@ -59,6 +62,11 @@ $count = $counts->fetch();
         <th><?php echo  h($machine['spec']); ?></th>
         <th><?php echo  h($machine['noise']); ?></th>
         <th><?php echo  h($machine['exhaust']); ?></th>
+        <th><?php if (file_exists($photo_main_path)) :?>
+            <img src ="<?php echo h($photo_main_path ) ;?>" width="100" height="100"/>
+            <?php else :?>
+            <img src ="../images/noimage.png" width="100" height="100"/>
+            <?php endif;?></th>
         <th><a href="delete.php?id=<?php echo h($machine['id']);?>" >削除</th>
       </tr>
     <?php endforeach;?>
