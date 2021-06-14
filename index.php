@@ -56,18 +56,18 @@ $machines = $db->query('SELECT * FROM machines');
 <nav id="menubar" class="nav-fix-pos">
 <ul class="inner">
 <li><a href="index.html">ホーム<span>HOME</span></a></li>
-<li><a href="about.html">レンタル機ラインナップ<span>LINE UP</span></a></li>
+<li><a href="#">レンタル機ラインナップ<span>LINE UP</span></a></li>
 <li><a href="javascript:void(0)" class="cursor-default">重機回送<span>HEAVY MACHINE CARRIAGE</span></span>
 	<ul class="ddmenu">
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
 	</ul>
 </li>
-<li><a href="recruit.html">会社概要<span>COMPANY INFO</span></a></li>
-<li><a href="contact.html">アクセス<span>ACCESS</span></a></li>
+<li><a href="#">会社概要<span>COMPANY INFO</span></a></li>
+<li><a href="#">アクセス<span>ACCESS</span></a></li>
 </ul>
 </nav>
 
@@ -78,11 +78,11 @@ $machines = $db->query('SELECT * FROM machines');
 <li><a href="about.html">LINE UP<span>レンタル機ラインナップ</span></a></li>
 <li id="menubar_hdr2" class="close">HEAVY MACHINE CARRIAGE<span>重機回送</span>
 	<ul id="menubar-s2">
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
-	<li><a href="works.html">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
+	<li><a href="#">メニュー</a></li>
 	</ul>
 </li>
 <li><a href="recruit.html">COMPANY INFORMATION<span>会社概要</span></a></li>
@@ -99,22 +99,13 @@ $machines = $db->query('SELECT * FROM machines');
 <h2>ラインナップ<span>LINE UP</span></h2>
 
 <div class="list-column-container">
-
-<div class="list-column">
-<figure><img src="images/sample1.jpg" alt=""></figure>
-<div class="text">
-<h4>メニュータイトル</h4>
-<p>ここに説明を入れます。</p>
-</div>
-<p class="btn1"><a href="#">もっとみる</a></p>
-</div>
     <?php foreach ($machines as $machine):?>
 			<div class="list-column">
 				<figure>
-					<?php $photo_main_path = "../images/" .$machine['photo']; if (file_exists($photo_main_path)) :?>
+					<?php $photo_main_path = "images/" .$machine['photo']; if (file_exists($photo_main_path)) :?>
 						<img src ="<?php echo h($photo_main_path ) ;?>"/>
 					<?php else :?>
-						<img src ="../images/noimage.png" width="100" height="100"/>
+						<img src ="images/noimage.png"/>
 					<?php endif;?>
 				</figure>
 				<div class="text">
@@ -140,19 +131,9 @@ $machines = $db->query('SELECT * FROM machines');
 									</tr>
 								</table>
 				</div>
-				<p class="btn1"><a href="#">もっとみる</a></p>
+				<p class="btn1"><a href="#">詳細を見る</a></p>
 			</div>
     <?php endforeach;?>
-<div class="list-column">
-<figure><img src="images/sample1.jpg" alt=""></figure>
-<div class="text">
-<h4>メニュータイトル</h4>
-<p>ここのスタイルは、style.cssの、<br>
-/*list-column（トップページで使っている３列ブロック）<br>
-で調整できます。</p>
-</div>
-<p class="btn1"><a href="#">もっとみる</a></p>
-</div>
 
 </div>
 <!--/.list-column-container-->
