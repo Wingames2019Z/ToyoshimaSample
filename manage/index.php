@@ -55,7 +55,6 @@ $count = $counts->fetch();
         <th><?php echo  h($machine['capacity']); ?></th>
         <th><?php echo  h($machine['power']); ?></th>
         <th><?php echo  h($machine['type']); ?></th>
-        <th><?php echo  h($machine['ict']); ?></th>
         <th><?php echo  h($machine['spec']); ?></th>
         <th><?php echo  h($machine['noise']); ?></th>
         <th><?php echo  h($machine['exhaust']); ?></th>
