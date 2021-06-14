@@ -25,17 +25,17 @@ if(!empty($_POST)){
   //登録処理をする
 
 
-  $statement = $db->prepare('INSERT INTO machines SET name=?, weight=?, capacity=?, output_power=?, type=?, spec=?, noise=?, exhaust=?,	photo_main=?');
+  $statement = $db->prepare('INSERT INTO machines SET name=?');
     echo $ret = $statement->execute(array(
       $_SESSION['add']['name'],
-      $_SESSION['add']['weight'],
-      $_SESSION['add']['capacity'],
-      $_SESSION['add']['power'],
-      $_SESSION['add']['type'],
-      $_SESSION['add']['spec'],
-      $_SESSION['add']['noise'],
-      $_SESSION['add']['exhaust'],
-      $_SESSION['add']['photo_main'],
+      // $_SESSION['add']['weight'],
+      // $_SESSION['add']['capacity'],
+      // $_SESSION['add']['power'],
+      // $_SESSION['add']['type'],
+      // $_SESSION['add']['spec'],
+      // $_SESSION['add']['noise'],
+      // $_SESSION['add']['exhaust'],
+      // $_SESSION['add']['photo_main'],
     ));
     unset($_SESSION['add']);
     $_SESSION['message'] = $statement -> errorInfo() ;
