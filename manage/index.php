@@ -53,7 +53,7 @@ $count = $counts->fetch();
         <th><?php echo  h($machine['name']); ?></th>
         <th><?php echo  h($machine['weight']); ?></th>
         <th><?php echo  h($machine['capacity']); ?></th>
-        <th><?php echo  h($machine['power']); ?></th>
+        <th><?php echo  h($machine['output_power']); ?></th>
         <th><?php echo  h($machine['type']); ?></th>
         <th><?php echo  h($machine['spec']); ?></th>
         <th><?php echo  h($machine['noise']); ?></th>
