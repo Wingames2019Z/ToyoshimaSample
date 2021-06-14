@@ -2,14 +2,7 @@
 session_start();
 require('./manage/dbconnect.php');
 date_default_timezone_set('Asia/Tokyo');
-if(isset($_SESSION['manager_id']) && $_SESSION['time'] + 3600 > time()){
-//ログインしている
-$_SESSION['time'] = time();
-}else{
-  //ログインしていない
-header('Location: login.php');
-exit();
-}
+
 //登録者情報を取得
 $machines = $db->query('SELECT * FROM machines');
 
