@@ -46,6 +46,7 @@ $count = $counts->fetch();
           <th>仕様</th>
           <th>騒音</th>
           <th>排ガス規制</th>
+          <th></th>
         </tr>
     <?php foreach ($machines as $machine):?>
       <tr>
@@ -58,6 +59,7 @@ $count = $counts->fetch();
         <th><?php echo  h($machine['spec']); ?></th>
         <th><?php echo  h($machine['noise']); ?></th>
         <th><?php echo  h($machine['exhaust']); ?></th>
+        <th><a href="delete.php?id=<?php echo h($machine['id']);?>" >削除</th>
       </tr>
     <?php endforeach;?>
   </table>

@@ -38,7 +38,8 @@ if(!empty($_POST)){
       $_SESSION['add']['photo_main'],
     ));
     unset($_SESSION['add']);
-    $_SESSION['message'] = $statement -> errorInfo() ;
+     //$statement -> errorInfo()
+    $_SESSION['message'] = "追加しました";
     exit();
 
 }
