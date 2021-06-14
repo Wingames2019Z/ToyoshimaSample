@@ -16,7 +16,7 @@ $machines = $db->query('SELECT * FROM machines');
 $counts = $db->query('SELECT COUNT(*) AS num FROM machines');
 $count = $counts->fetch();
 
-$photo_main_path = "../images/" .$machines['photo']];
+$photo_main_path = "../images/" .$machines['photo'];
 
 ?>
 
