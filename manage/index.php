@@ -16,7 +16,7 @@ $machines = $db->query('SELECT * FROM machines');
 $counts = $db->query('SELECT COUNT(*) AS num FROM machines');
 $count = $counts->fetch();
 
-$photo_main_path = "../images/" .$machines['photo'];
+
 
 ?>
 
@@ -62,7 +62,9 @@ $photo_main_path = "../images/" .$machines['photo'];
         <th><?php echo  h($machine['spec']); ?></th>
         <th><?php echo  h($machine['noise']); ?></th>
         <th><?php echo  h($machine['exhaust']); ?></th>
-        <th><?php if (file_exists($photo_main_path)) :?>
+        <?php ?>
+        <th><?php $photo_main_path = "../images/" .$machine['photo'];
+            if (file_exists($photo_main_path)) :?>
             <img src ="<?php echo h($photo_main_path ) ;?>" width="100" height="100"/>
             <?php else :?>
             <img src ="../images/noimage.png" width="100" height="100"/>
